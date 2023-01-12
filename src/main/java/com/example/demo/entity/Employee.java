@@ -61,4 +61,11 @@ public class Employee extends GenericFields implements Serializable{
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
+	
+	public Long getId() {
+		return Id;
+	}
+	public void setId(Long id) {
+		Id = id;
+	}
 }
