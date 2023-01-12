@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,30 +21,47 @@ public class GenericFields{
 	
 	
 	@Column(name="created_by")
-	@Temporal(TemporalType.DATE)
-	private Date createdBy;
+	private int createdBy;
 	
 	@Column(name="modified_by")
-	@Temporal(TemporalType.DATE)
-	private Date modifiedBy;
+	
+	private int modifiedBy;
 	
 	@Column(name="modified_date")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date modifiedDate;
 	private Boolean status;
 	
-	public Date getCreatedBy() {
+	@PrePersist
+	public void prePersist() {
+		this.createdBy=1;
+		this.modifiedBy=1;
+		this.modifiedDate=new Date();
+		this.status=true;
+	}
+	
+	
+	public int getCreatedBy() {
 		return createdBy;
 	}
-	public void setCreatedBy(Date createdBy) {
+
+
+	public void setCreatedBy(int createdBy) {
 		this.createdBy = createdBy;
 	}
-	public Date getModifiedBy() {
+
+
+
+	public int getModifiedBy() {
 		return modifiedBy;
 	}
-	public void setModifiedBy(Date modifiedBy) {
+
+
+	public void setModifiedBy(int modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
+
+
 	public Date getModifiedDate() {
 		return modifiedDate;
 	}
