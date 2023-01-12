@@ -29,6 +29,12 @@ import javax.persistence.ManyToOne;
 		
 		private String description;
 		private String name;
+		public Long getId() {
+			return Id;
+		}
+		public void setId(Long id) {
+			Id = id;
+		}
 		private String phone;
 		
 		@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","enterprise"})

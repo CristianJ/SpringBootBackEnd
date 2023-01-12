@@ -1,5 +1,6 @@
 package com.example.demo.Controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import com.example.demo.entity.Employee;
 
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/department")
 public class DepartmentController  extends GenericController<Department,IDepartmentService>  {
 
