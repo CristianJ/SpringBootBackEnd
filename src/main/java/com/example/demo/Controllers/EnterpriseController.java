@@ -27,6 +27,11 @@ public class EnterpriseController {
 		return enterpriseService.getAll();
 	}
 	
+	@GetMapping("/{id}")
+	public Response<Enterprise> getById(@PathVariable Long id){
+		return enterpriseService.findById(id);
+	}
+	
 	@PostMapping
 	public Response<Enterprise> save(@RequestBody Enterprise enterprise ){
 		return enterpriseService.save(enterprise);

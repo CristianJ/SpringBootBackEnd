@@ -49,6 +49,23 @@ Response response=new Response<Enterprise>();
 		
 	}
 
+	@Override
+	public Response<E> findById(Long id) {
+Response response=new Response<E>();
+		
+		try {
+			response.Data=repository.findById(id).orElse(null);
+			if(response.Data!=null) {
+				response.isSuccess=true;
+				response.Message="CONSULTA EXITOSA";
+			}
+		}catch(Exception e ) {
+			response.Message=e.toString();
+		}
+		
+		return response;
+	}
+
 	
 
 }

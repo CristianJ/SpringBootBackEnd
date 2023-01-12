@@ -76,6 +76,24 @@ Response response=new Response<Enterprise>();
 		return response;
 	}
 
+	@Override
+	public Response<Enterprise> findById(Long id) {
+		// TODO Auto-generated method stub
+Response response=new Response<Enterprise>();
+		
+		try {
+			response.Data=alumnoRepository.findById(id).orElse(null);	
+			if(response.Data!=null) {
+				response.isSuccess=true;
+				response.Message="CONSULTA EXITOSA";
+			}
+		}catch(Exception e ) {
+			response.Message=e.toString();
+		}
+		
+		return response;
+	}
+
 	
 
 	

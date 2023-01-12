@@ -27,5 +27,10 @@ public class GenericController<E,S extends GenericService<E>> {
 		return service.save(entity);
 	}
 	
+	@GetMapping("/{id}")
+	public Response<E> findById(@PathVariable Long id){
+		return service.findById(id);
+	}
+	
 	
 }

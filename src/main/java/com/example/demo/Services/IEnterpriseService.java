@@ -13,5 +13,7 @@ public interface IEnterpriseService {
 	
 	public Response<Enterprise> update(Long id,Enterprise enterprise);
 	
+	public Response<Enterprise> findById(Long id);
+	
 	
 }
